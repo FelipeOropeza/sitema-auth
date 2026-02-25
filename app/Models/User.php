@@ -11,20 +11,24 @@ class User extends Model
 {
     protected $table = 'users';
 
-    // Propriedades publicas mapeando as colunas da tabela "users"
-    public ?int $id = null;
-    
-    #[Required]
-    public ?string $nome = null;
+    public function __construct(
+        public ?int $id = null,
 
-    #[Required]
-    #[Email]
-    public ?string $email = null;
+        #[Required]
+        public ?string $nome = null,
 
-    #[Required] 
-    #[MinLength(8)]
-    public ?string $password = null;    
-    
-    public ?string $created_at = null;
-    public ?string $updated_at = null;
+        #[Required]
+        #[Email]
+        public ?string $email = null,
+
+        #[Required]
+        #[MinLength(8)]
+        public ?string $password = null,
+
+        public ?string $created_at = null,
+        public ?string $updated_at = null,
+    )
+    {
+        parent::__construct();
+    }
 }
