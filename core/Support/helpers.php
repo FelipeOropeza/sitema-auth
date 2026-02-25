@@ -41,12 +41,7 @@ if (!function_exists('view')) {
         $viewPath = $config['paths']['views'];
         $engineType = $config['app']['view_engine'] ?? 'php';
 
-        if ($engineType === 'twig') {
-            $engine = new \Core\View\TwigEngine($viewPath);
-        }
-        else {
-            $engine = new \Core\View\PhpEngine($viewPath);
-        }
+        $engine = new \Core\View\PhpEngine($viewPath);
 
         $engine->render($viewName, $data);
         exit; // Encerra após renderizar a view pra evitar HTML quebrado

@@ -17,12 +17,7 @@ abstract class Controller
         $viewPath = $config['paths']['views'];
         $engineType = $config['app']['view_engine'] ?? 'php';
 
-        if ($engineType === 'twig') {
-            $this->engine = new TwigEngine($viewPath);
-        }
-        else {
-            $this->engine = new PhpEngine($viewPath);
-        }
+        $this->engine = new PhpEngine($viewPath);
     }
 
     protected function view(string $view, array $data = []): void
