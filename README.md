@@ -1,47 +1,90 @@
-# MVC Base em PHP Puro
+# Sistema de Autenticação - PHP MVC
 
-Um esqueleto simples e leve para estrutura MVC completa em PHP, pronto para usar com Composer, contendo: Router próprio, Request DTO validator, View Engine simplificada e utilitários da CLI (Forge).
+Este é um sistema de autenticação robusto e moderno, construído com um Framework MVC customizado em PHP Puro. O projeto demonstra a implementação de um fluxo completo de autenticação, desde o registro do usuário até o controle de acesso a páginas protegidas usando Middlewares.
 
-## Documentação
+## 🚀 Funcionalidades
 
-Para mergulhar fundo e aprender a separar a lógica da sua aplicação de forma profissional num MVC, construir modelos, usar o Validator baseado em PHP 8 Attributes e a CLI do Framework, consulte a documentação dedicada na pasta `docs/`:
+- **Registro de Usuários:** Cadastro completo com validação de campos.
+- **Login:** Sistema de login seguro com gerenciamento de sessão.
+- **Proteção de Rotas:** Middleware de autenticação para proteger áreas restritas.
+- **Validação com Attributes:** Uso de Attributes do PHP 8.1+ para validações de modelos (Required, Email, MinLength).
+- **Arquitetura MVC:** Separação clara entre Modelo, Visão e Controlador.
+- **CLI Forge:** Ferramenta de linha de comando para acelerar o desenvolvimento local.
 
-=> [Ler a Documentação do Motor MVC](docs/framework.md)
+## 🛠️ Tecnologias Utilizadas
+
+- **Linguagem:** PHP 8.1+
+- **Database:** MySQL
+- **Dependências:** Composer (phpdotenv)
+- **Frontend:** HTML5, CSS3 (Vanilla CSS com design moderno)
+- **Servidor:** Servidor embutido do PHP ou Apache (.htaccess incluso)
+
+## 📁 Estrutura do Projeto
+
+```text
+├── app/
+│   ├── Controllers/   # Lógica das rotas
+│   ├── Models/        # Entidades e Banco de Dados
+│   ├── Views/         # Templates PHP (HTML/CSS)
+│   └── Middleware/    # Filtros de acesso (Auth)
+├── core/              # O "Motor" do Framework (Router, Database, etc)
+├── config/            # Configurações globais
+├── database/          # Migrations e Schema
+├── public/            # Ponto de entrada (index.php) e Assets
+├── routes/            # Definição das rotas (web.php)
+└── forge              # CLI do framework
+```
+
+## 🏁 Começando
+
+### Pré-requisitos
+
+- PHP 8.1 ou superior
+- MySQL
+- Composer
+
+### Instalação
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/FelipeOropeza/sitema-auth.git
+    cd sitema-auth
+    ```
+
+2.  **Instale as dependências:**
+    ```bash
+    composer install
+    ```
+
+3.  **Configuração do Ambiente:**
+    Copie o arquivo `.env.example` para `.env` e configure suas credenciais de banco de dados:
+    ```bash
+    copy .env.example .env
+    ```
+
+4.  **Banco de Dados:**
+    Crie o banco de dados e execute as migrations (caso disponível via forge) ou importe o script SQL.
+    ```bash
+    php forge migrate
+    ```
+
+5.  **Inicie o servidor:**
+    ```bash
+    composer start
+    ```
+    O sistema estará disponível em `http://localhost:8000`.
+
+## 🛠️ Comandos Forge
+
+O `forge` é o seu assistente no terminal:
+
+- **Criar Controller:** `php forge make:controller NomeController`
+- **Criar Model:** `php forge make:model NomeModel`
+- **Executar Migrations:** `php forge migrate`
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
-
-## Início Rápido (Instalação e Teste)
-
-### Método 1: Via Composer (Recomendado)
-A forma mais fácil de criar a aplicação é rodar o `create-project`. Ele baixará a última versão, iniciará o **instalador interativo** e limpará os arquivos de instalação ao finalizar.
-
-```bash
-composer create-project felipe-code/mvc-base nome-do-seu-projeto
-```
-
-### Método 2: Via Git Clone Manual
-Se preferir clonar o repositório, você pode engatilhar o instalador interativo logo em seguida com os comandos abaixo:
-
-```bash
-git clone https://github.com/FelipeOropeza/mvc-estrutura.git meu-app
-cd meu-app
-composer install
-composer run post-create-project-cmd
-```
-
-### Iniciando o Servidor Local:
-Uma vez que o projeto esteja instanciado, inicie o servidor interno de prateleira:
-```bash
-composer start
-```
-E acesse `http://localhost:8000` no seu navegador.
-
-### Comandos Rápidos da CLI:
-```bash
-php forge make:controller NomeController
-php forge make:model TabelaModel
-```
-
-## Licença
-
-MIT
+Desenvolvido por **[Felipe](https://github.com/FelipeOropeza)**
