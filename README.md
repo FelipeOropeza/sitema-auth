@@ -16,7 +16,7 @@ Este é um sistema de autenticação robusto e moderno, construído com um Frame
 - **Linguagem:** PHP 8.1+
 - **Database:** MySQL
 - **Dependências:** Composer (phpdotenv)
-- **Frontend:** HTML5, CSS3 (Vanilla CSS com design moderno)
+- **Frontend:** HTML5, Bootstrap 5
 - **Servidor:** Servidor embutido do PHP ou Apache (.htaccess incluso)
 
 ## 📁 Estrutura do Projeto
